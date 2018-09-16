@@ -1,0 +1,33 @@
+{
+  "name": "com.proximcreation.firebase",
+  "version": "1.0.0",
+  "displayName": "FirebaseTest",
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-battery-status": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-dialogs": {},
+      "cordova-plugin-file": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-vibration": {},
+      "phonegap-plugin-push": {
+        "FCM_VERSION": "11.0.1"
+      }
+    }
+  },
+  "dependencies": {
+    "cordova-android": "^7.1.1",
+    "cordova-plugin-battery-status": "~1.2.4",
+    "cordova-plugin-device": "~1.1.6",
+    "cordova-plugin-dialogs": "~1.3.3",
+    "cordova-plugin-file": "~4.3.3",
+    "cordova-plugin-inappbrowser": "~1.7.1",
+    "cordova-plugin-network-information": "~1.3.3",
+    "cordova-plugin-vibration": "~2.1.5",
+    "phonegap-plugin-push": "^2.1.2"
+  }
+}

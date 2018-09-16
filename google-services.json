@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "356156599617",
+    "firebase_url": "https://proximcreationpushsandbox.firebaseio.com",
+    "project_id": "proximcreationpushsandbox",
+    "storage_bucket": "proximcreationpushsandbox.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356156599617:android:08def1bfea2a5a12",
+        "android_client_info": {
+          "package_name": "com.gtvapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356156599617-k95vsb6pjuld8bgefkhc3gkb995so5bq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdXeE1854xlnJkrVLNQKzWHYez3WMvXxE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356156599617:android:724f4fc998e067fc",
+        "android_client_info": {
+          "package_name": "com.proximcreation.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356156599617-k95vsb6pjuld8bgefkhc3gkb995so5bq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdXeE1854xlnJkrVLNQKzWHYez3WMvXxE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
