@@ -34,19 +34,62 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        document.write(`device ready<br>`)
-        document.write(`<textarea style="width:100%" rows="10">${JSON.stringify(window.FirebasePlugin)}</textarea>`)
-        
-        document.write(`<hr>FirebasePlugin getToken<br>`)
-        window.FirebasePlugin.getToken(function(token) {
-          // save this server-side and use it to push notifications to this device
-          document.write(`token : ${token}<br>`)
-          console.log(token);
-        }, function(error) {
-          document.write(`error : ${JSON.stringify(error)}<br>`)
-          console.error(error);
-        });
-        document.write(`<hr>`)
+        // document.write(`device ready<br>`)
+        // document.write(`<textarea style="width:100%" rows="10">${JSON.stringify(window.FirebasePlugin)}</textarea>`)
+        // 
+        // document.write(`<hr>FirebasePlugin getToken<br>`)
+        // window.FirebasePlugin.getToken(function(token) {
+        //   // save this server-side and use it to push notifications to this device
+        //   document.write(`token : ${token}<br>`)
+        //   console.log(token);
+        // }, function(error) {
+        //   document.write(`error : ${JSON.stringify(error)}<br>`)
+        //   console.error(error);
+        // });
+        // document.write(`<hr>`)
+        // 
+        // // INIT PUSH NOTIFICATIONS
+        console.log('calling push init');
+        let push = PushNotification.init({
+          'android': {
+            // 'senderID': 'XXXXXXXX'
+          },
+          'browser': {},
+          'ios': {
+            'sound': true,
+            'vibration': true,
+            'badge': true,
+            'alert': true
+            // 'senderID': 'xxxxxxxx'
+          },
+          'windows': {}
+        })
+        console.log('after init')
+        push.on('registration', function(data) {
+          console.log('registration event: ' + data.registrationId)
+          document.write('registration event: ' + data.registrationId + '<br>')
+          var oldRegId = window.localStorage.getItem('registrationId')
+          if (oldRegId !== data.registrationId) {
+            window.localStorage.setItem('registrationId', data.registrationId)
+            // Post registrationId to your app server as the value has changed
+            // TODO
+          }
+        })
+        push.on('error', function(e) {
+          console.log('push error = ' + e.message)
+          document.write('push error = ' + e.message + '<br>'
+        })
+        push.on('notification', function(data) {
+          console.log('notification event')
+          document.write('notification event' + '<br>')
+          console.log(JSON.stringify(data))
+          navigator.notification.alert(
+            data.message,         // message
+            function() {},
+            data.title,
+            'En savoir plus'
+          )
+        })
         
     },
     // Update DOM on a Received Event
