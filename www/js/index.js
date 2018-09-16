@@ -50,48 +50,52 @@ var app = {
         // 
         // // INIT PUSH NOTIFICATIONS
         console.log('calling push init');
-        let push = PushNotification.init({
-          'android': {
-            // 'senderID': 'XXXXXXXX'
-          },
-          'browser': {},
-          'ios': {
-            'sound': true,
-            'vibration': true,
-            'badge': true,
-            'alert': true
-            // 'senderID': 'xxxxxxxx'
-          },
-          'windows': {}
-        })
-        console.log('after init')
-        push.on('registration', function(data) {
-          console.log('registration event: ' + data.registrationId)
-          document.write('registration event: ' + data.registrationId + '<br>')
-          var oldRegId = window.localStorage.getItem('registrationId')
-          if (oldRegId !== data.registrationId) {
-            window.localStorage.setItem('registrationId', data.registrationId)
-            // Post registrationId to your app server as the value has changed
-            // TODO
-          }
-        })
-        push.on('error', function(e) {
-          console.log('push error = ' + e.message)
-          document.write('push error = ' + e.message + '<br>')
-        })
-        push.on('notification', function(data) {
-          console.log('notification event')
-          document.write('notification event' + '<br>')
-          console.log(JSON.stringify(data))
-          document.write(JSON.stringify(data) + '<br>')
-          navigator.notification.alert(
-            data.message,         // message
-            function() {},
-            data.title,
-            'En savoir plus'
-          )
-        })
-        
+        try {
+          let push = PushNotification.init({
+            'android': {
+              // 'senderID': 'XXXXXXXX'
+            },
+            'browser': {},
+            'ios': {
+              'sound': true,
+              'vibration': true,
+              'badge': true,
+              'alert': true
+              // 'senderID': 'xxxxxxxx'
+            },
+            'windows': {}
+          })
+          console.log('after init')
+          push.on('registration', function(data) {
+            console.log('registration event: ' + data.registrationId)
+            document.write('registration event: ' + data.registrationId + '<br>')
+            var oldRegId = window.localStorage.getItem('registrationId')
+            if (oldRegId !== data.registrationId) {
+              window.localStorage.setItem('registrationId', data.registrationId)
+              // Post registrationId to your app server as the value has changed
+              // TODO
+            }
+          })
+          push.on('error', function(e) {
+            console.log('push error = ' + e.message)
+            document.write('push error = ' + e.message + '<br>')
+          })
+          push.on('notification', function(data) {
+            console.log('notification event')
+            document.write('notification event' + '<br>')
+            console.log(JSON.stringify(data))
+            document.write(JSON.stringify(data) + '<br>')
+            navigator.notification.alert(
+              data.message,         // message
+              function() {},
+              data.title,
+              'En savoir plus'
+            )
+          })
+          
+        } catch (e) {
+          document.write(JSON.stringify(e))
+        }
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
