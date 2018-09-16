@@ -96,7 +96,7 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <platform name="android">
-        <resource-file src="google-services.json" target="google-services.json" />
+        <resource-file src="google-services.json" target="app/google-services.json" />
     </platform>
     <engine name="android" spec="^7.0.0" />
     <plugin name="cordova-plugin-battery-status" spec="~1.2.4" />
