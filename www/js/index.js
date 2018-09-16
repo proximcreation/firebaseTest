@@ -78,15 +78,12 @@ var app = {
       push.on('notification', function(data) {
         console.log('notification event')
         console.log(JSON.stringify(data))
-        // navigator.notification.alert(
-        //   data.message,         // message
-        //   function() {
-        //     console.log(window.location.pathname)
-        //     console.log(data.additionalData.path)
-        //   },
-        //   data.title,
-        //   'En savoir plus'
-        // )
+        navigator.notification.alert(
+          data.message,         // message
+          function() {},
+          data.title,
+          'En savoir plus'
+        )
       })
     }
 };
