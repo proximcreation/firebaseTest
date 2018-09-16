@@ -51,6 +51,7 @@ var app = {
         // // INIT PUSH NOTIFICATIONS
         console.log('calling push init');
         try {
+          document.write(typeof PushNotification+'<br>')
           let push = PushNotification.init({
             'android': {
               // 'senderID': 'XXXXXXXX'
@@ -94,7 +95,7 @@ var app = {
           })
           
         } catch (e) {
-          document.write(JSON.stringify(e))
+          document.write(e)
         }
     },
     // Update DOM on a Received Event
