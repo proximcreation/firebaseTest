@@ -34,7 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        // document.write(`device ready<br>`)
+        document.write(`device ready<br>`)
         // document.write(`<textarea style="width:100%" rows="10">${JSON.stringify(window.FirebasePlugin)}</textarea>`)
         // 
         // document.write(`<hr>FirebasePlugin getToken<br>`)
@@ -77,12 +77,13 @@ var app = {
         })
         push.on('error', function(e) {
           console.log('push error = ' + e.message)
-          document.write('push error = ' + e.message + '<br>'
+          document.write('push error = ' + e.message + '<br>')
         })
         push.on('notification', function(data) {
           console.log('notification event')
           document.write('notification event' + '<br>')
           console.log(JSON.stringify(data))
+          document.write(JSON.stringify(data) + '<br>')
           navigator.notification.alert(
             data.message,         // message
             function() {},
